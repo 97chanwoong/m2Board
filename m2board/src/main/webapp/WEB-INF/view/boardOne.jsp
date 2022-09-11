@@ -1,0 +1,234 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Focus - Bootstrap Admin Dashboard </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/bootdstrap/images/favicon.png">
+    <link href="${pageContext.request.contextPath}/bootdstrap/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootdstrap/vendor/chartist/css/chartist.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootdstrap/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+       <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                <img class="logo-abbr" src="${pageContext.request.contextPath}/bootdstrap/images/logo.png" alt="">
+                <img class="logo-compact" src="${pageContext.request.contextPath}/bootdstrap/images/logo-text.png" alt="">
+                <img class="brand-title" src="${pageContext.request.contextPath}/bootdstrap/images/logo-text.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="${pageContext.request.contextPath}/index" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Profile </span>
+                                    </a>
+                                    <a href="${pageContext.request.contextPath}/logout" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Logout </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first">My Menu</li>
+                    <!-- <li><a href="index.html"><i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
+                    </li> -->
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Profile</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="${pageContext.request.contextPath}/updateMember">내정보 수정</a></li>
+                            <li><a href="${pageContext.request.contextPath}/updateMemberPass">비밀번호 변경</a></li>
+                            <li><a href="${pageContext.request.contextPath}/deleteMember">회원 탈퇴</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Board</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">게시판</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="${pageContext.request.contextPath}/boardList">전체 게시글</a></li>
+                            <li><a href="./app-profile.html">내가 작성한 게시글</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h1 class="card-title">전체 게시글</h1>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table student-data-table m-t-10">
+                                    	<tr>
+											<th>번호</th>
+											<td>${map.boardNo}</td>
+										</tr>
+										<tr>
+											<th>제목</th>
+											<td>${map.boardTitle}</td>
+										</tr>
+										<tr>
+											<th>작성자</th>
+											<td>${map.memberId}</td>
+										</tr>
+										<tr>
+											<th>작성일</th>
+											<td>${map.createDate}</td>
+										</tr>
+										<tr>
+											<th>내용</th>
+											<td>${map.boardContents}</td>
+										</tr>
+										<tr>
+											<th>조회</th>
+											<td>${map.boardViews}</td>
+										</tr>
+										<tr>
+											<th>
+												<a class="btn btn-rounded btn-success" type="button" href="${pageContext.request.contextPath}/boardOneNice?boardNo=${map.boardNo}">
+													좋아요
+												</a>
+											</th>
+											<td>${map.boardNice}</td>
+										</tr>
+									</table>
+									<div style="text-align:right;">
+										<c:if test="${loginMember.memberId eq map.memberId}">
+											<a type="btn" class="btn btn-primary" href="${pageContext.request.contextPath}/updateBoard?boardNo=${map.boardNo}">수정</a>
+											<a type="btn" class="btn btn-warning" href="${pageContext.request.contextPath}/deleteBoard?boardNo=${map.boardNo}">삭제</a>
+									    </c:if>
+								    </div>		
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
+                <p>Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a></p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="${pageContext.request.contextPath}/bootdstrap/vendor/global/global.min.js"></script>
+    <script src="${pageContext.request.contextPath}/bootdstrap/js/quixnav-init.js"></script>
+    <script src="${pageContext.request.contextPath}/bootdstrap/js/custom.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/bootdstrap/vendor/chartist/js/chartist.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/bootdstrap/vendor/moment/moment.min.js"></script>
+    <script src="${pageContext.request.contextPath}/bootdstrap/vendor/pg-calendar/js/pignose.calendar.min.js"></script>
+
+
+    <script src="${pageContext.request.contextPath}/bootdstrap/js/dashboard/dashboard-2.js"></script>
+    <!-- Circle progress -->
+
+</body>
+
+</html>
