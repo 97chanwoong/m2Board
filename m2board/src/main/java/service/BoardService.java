@@ -10,12 +10,14 @@ import java.util.Map;
 import commons.DBUtil;
 import repository.BoardDao;
 import repository.IBoardDao;
+import repository.NiceDao;
 import vo.Board;
 import vo.Member;
 
 public class BoardService implements IBoardService {
 	private DBUtil dbutil;
 	private BoardDao boardDao;
+	private NiceDao niceDao;
 
 	@Override
 	public int addBoard(Board board) {
@@ -105,12 +107,14 @@ public class BoardService implements IBoardService {
 		Connection conn = null;
 		dbutil = new DBUtil();
 		boardDao = new BoardDao();
+		niceDao = new NiceDao();
 		try {
 			conn = dbutil.getConnection();
 			// 디버깅
 			System.out.println(conn + "<-- removeBoard conn");
 			// 자동커밋해제
 			conn.setAutoCommit(false);
+			niceDao.deleteNiceByboardNo(conn, boardNo);
 			row = boardDao.deleteBoard(conn, boardNo);
 			if (row == 0) {
 				throw new Exception();

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="kr">
 
 <head>
     <meta charset="utf-8">
@@ -26,10 +26,8 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="${pageContext.request.contextPath}/bootdstrap/images/logo.png" alt="">
-                <img class="logo-compact" src="${pageContext.request.contextPath}/bootdstrap/images/logo-text.png" alt="">
-                <img class="brand-title" src="${pageContext.request.contextPath}/bootdstrap/images/logo-text.png" alt="">
+             <a href="${pageContext.request.contextPath}/index" class="brand-logo" style="font-size:25px;">
+            	<span>Chanwoong Cafe</span>
             </a>
 
             <div class="nav-control">
@@ -89,7 +87,7 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="quixnav">
+                <div class="quixnav">
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">My Menu</li>
@@ -109,7 +107,7 @@
                                 class="icon icon-app-store"></i><span class="nav-text">게시판</span></a>
                         <ul aria-expanded="false">
                             <li><a href="${pageContext.request.contextPath}/boardList">전체 게시글</a></li>
-                            <li><a href="./app-profile.html">내가 작성한 게시글</a></li>
+                            <li><a href="${pageContext.request.contextPath}/boardListMember">내가 작성한 게시글</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -133,11 +131,11 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                   <form id="addBoardBtn" action="<%=request.getContextPath()%>/addBoard" method="post">
+                                   <form id="addBoardForm" action="<%=request.getContextPath()%>/addBoard" method="post">
 										<table class="table student-data-table m-t-10">
 											<tr>
 												<th>제목</th>
-												<td><input type="text" name="boardTitle"></td>
+												<td><input type="text" id="boardTitle" name="boardTitle"></td>
 											</tr>
 											<tr>
 												<th>작성자</th>
@@ -147,12 +145,12 @@
 											</tr>
 											<tr>
 												<th>내용</th>
-												<td><textarea rows="5" cols="100" name="boardContents"></textarea>
+												<td><textarea rows="5" cols="100" id="boardContents" name="boardContents"></textarea>
 												</td>
 											</tr>
 										</table>
 										<div style="text-align:right;">
-										<button id="addBtn" class="btn btn-primary" type="submit">작성</button>
+										<button id="addBoardBtn" class="btn btn-primary" type="button">작성</button>
                                     	</div>
                                     </form>
                                      <div>

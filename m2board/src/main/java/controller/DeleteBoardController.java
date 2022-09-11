@@ -31,7 +31,7 @@ public class DeleteBoardController extends HttpServlet {
 		// 메서드 실행
 		boardService = new BoardService();
 		int row = boardService.removeBoard(boardNo);
-		//결과 확인 후 포워딩
+		// 재실행
 		if(row == 0) {	
 			System.out.println("게시글 삭제 실패");
 			response.sendRedirect(request.getContextPath() + "/boardOne"); 

@@ -111,7 +111,8 @@ public class NiceDao implements INiceDao {
 		}
 		return row;
 	}
-
+	
+	// 해당Member가 누른 좋아요 전체 삭제
 	@Override
 	public int deleteNiceByMemberId(Connection conn, String memberId) throws Exception {
 		// 리턴값
