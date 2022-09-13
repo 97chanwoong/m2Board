@@ -50,7 +50,7 @@
 	                                                </td>
 	                                            </tr>
 	                                            <tr>
-	                                                <th>비밀번호 확인</th>
+	                                                <th>비밀번호</th>
 	                                                <td>
 	                                                	 <input type="password" class="form-control" name="memberPw" id="memberPw">
 	                                                </td>
