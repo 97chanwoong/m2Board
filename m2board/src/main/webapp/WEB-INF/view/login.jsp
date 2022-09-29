@@ -26,11 +26,11 @@
                                     <form action="<%=request.getContextPath()%>/login" method="post">
                                         <div class="form-group">
                                             <label><strong>아이디</strong></label>
-                                            <input type="text" class="form-control" name="memberId" id="memberId">
+                                            <input type="text" class="form-control" name="memberId" id="memberId" value="user1">
                                         </div>
                                         <div class="form-group">
                                             <label><strong>비밀번호</strong></label>
-                                            <input type="password" class="form-control" name="memberPw" id="memberPw">
+                                            <input type="password" class="form-control" name="memberPw" id="memberPw" value="1234">
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block">Login</button>
