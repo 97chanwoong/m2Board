@@ -4,7 +4,7 @@
         ***********************************-->
         <div class="nav-header">
             <a href="${pageContext.request.contextPath}/index" class="brand-logo" style="font-size:25px;">
-            	<span>Chanwoong Blog</span>
+            	<span>Chanwoong Board</span>
             </a>
 
             <div class="nav-control">
