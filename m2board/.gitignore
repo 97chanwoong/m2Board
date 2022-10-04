@@ -15,7 +15,6 @@ local.properties
 .loadpath
 .recommenders
 .classpath
-DBUtil.java
 
 # External tool builders
 .externalToolBuilders/
@@ -121,5 +120,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
+# ignore File
+DBUtil.java
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
