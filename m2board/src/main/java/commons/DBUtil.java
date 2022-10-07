@@ -11,7 +11,7 @@ public class DBUtil {
 	      System.out.println("드라이버 로딩 성공");
 	      String url = "jdbc:mariadb://3.38.124.179:3306/m2";
 	      String dbuser = "root";
-	      String dbpw = "bakhalms1234";
+	      String dbpw = "1234";
 	      Connection conn = DriverManager.getConnection(url, dbuser, dbpw);
 	      
 	      return conn;
